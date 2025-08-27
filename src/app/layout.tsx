@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   description: "Vista a FORÇA do estilo",
 };
 
+import Header from "@/components/header";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,8 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jostSerif.variable} ${jostSerif.variable} antialiased`}
-      >
+        className={`${jostSerif.variable} ${jostSerif.variable} antialiased`}>
+          <div className="top-0 left-0 width"></div>
+        <Header />
         {children}
       </body>
     </html>
