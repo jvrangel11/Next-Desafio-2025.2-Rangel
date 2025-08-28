@@ -44,7 +44,7 @@ export default function Header() {
             <Link href="/login" className="text-gray-300 hover:text-white transition-colors duration-200">
               Login
             </Link>
-            <button className="text-gray-300 hover:text-white transition-colors duration-200">
+            <button className="text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
               <ShoppingBagIcon className="h-6 w-6" /> 
             </button>
           </div>
