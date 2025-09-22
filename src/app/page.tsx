@@ -6,9 +6,9 @@ import BarraPesquisa from "@/components/barra-de-pesquisa";
 
 export default function Home() {
   const produtos = [
-    { id: 1, name: "Cash Over Feelings Oversized", price: 159.90, img: "" },
-    { id: 2, name: "Cash Over Feelings Oversized", price: 159.90, img: "" },
-    { id: 3, name: "Cash Over Feelings Oversized", price: 159.90, img: "" },
+    { id: 1, name: "Cash Over Feelings Oversized", price: 159.90, img: "/assets/Camisa.png" },
+    { id: 2, name: "Cash Over Feelings Oversized", price: 159.90, img: "/assets/Camisa.png" },
+    { id: 3, name: "Cash Over Feelings Oversized", price: 159.90, img: "/assets/Camisa.png" },
   ];
 
   return (
@@ -29,6 +29,11 @@ export default function Home() {
 
       <section className="max-w-6xl mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold text-center mb-8">Confira a NOVA COLEÇÃO</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {produtos.concat(produtos).map((produto, idx) => (
+            <CardProduto key={idx} produto={produto} />
+          ))}
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {produtos.concat(produtos).map((produto, idx) => (
             <CardProduto key={idx} produto={produto} />
