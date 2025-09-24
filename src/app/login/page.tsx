@@ -10,7 +10,7 @@ export default function Login() {
             <input
               type="email"
               id="email"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white/100"
+              className="mt-1 block w-full border border-gray-300 rounded-xl shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white/100"
               placeholder="seuemail@email.com"
             />
           </div>
@@ -19,10 +19,11 @@ export default function Login() {
             <input
               type="password"
               id="password"
-              className="mt-1 block w-[300px] rounded-md shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white/100"
+              className="mt-1 block w-[300px] rounded-xl shadow-sm p-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white/100"
               placeholder="***********"
             />
           </div>
+          <div className="flex items-center justify-center"><button type="submit" className="bg-[#311848] text-white px-4 py-2 rounded-xl"">Login</button></div>
         </form>
       </div>
     </div>
