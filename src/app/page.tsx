@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import CardProduto from "@/components/card-produto";
 import BarraPesquisa from "@/components/barra-de-pesquisa";
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export default function Home() {
   const produtos = [
@@ -16,15 +17,18 @@ export default function Home() {
       <Navbar />
 
       <Hero />
-
-      <section className="max-w-6xl mx-auto px-4 py-12">
+      <section className="mx-auto px-4 py-12" >
         <h2 className="text-2xl font-bold text-center mb-8">Mais Vendidos</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 cursor-pointer">
+        <div className="w-full flex grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 cursor-pointer">
+          <button className="hover:scale-200 transition-transform"><FaChevronLeft /></button>
           {produtos.map((produto) => (
             <CardProduto key={produto.id} produto={produto} />
           ))}
+          <button className="hover:scale-200 transition-transform"><FaChevronRight /></button>
         </div>
       </section>
+
+      <div className="w-full shadow h-2"></div>
 
 
       <section className="max-w-6xl mx-auto px-4 py-12">

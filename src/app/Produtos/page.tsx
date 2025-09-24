@@ -1,19 +1,9 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CardProduto from "@/components/card-produto";
+import BarraDePesquisa from "@/components/barra-de-pesquisa";
 
-function SearchBar() {
-  return (
-    <div className="relative w-full md:w-1/2">
-      <input
-        type="text"
-        placeholder="O que você está procurando?"
-        className="w-full border rounded-md pl-10 pr-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
-      />
-      <span className="absolute left-3 top-2.5 text-gray-400">🔍</span>
-    </div>
-  );
-}
+
 
 export default function ProductsPage() {
   const produtos = Array.from({ length: 12 }, (_, i) => ({
@@ -26,9 +16,10 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen flex flex-col">
       <Navbar />
-
-      <section className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <SearchBar />
+      <div className="flex-grow bg-[url('/assets/bg1.png')] bg-no-repeat bg-cover bg-center items-center justify-center">
+      <div className="bg-white bg-opacity-90">
+      <section className="max-w-6xl mt-20 mx-auto px-1 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <BarraDePesquisa />
         <button className="flex items-center gap-2 border rounded-md px-4 py-2 hover:bg-gray-100 transition">
           Filtros
         </button>
@@ -43,15 +34,16 @@ export default function ProductsPage() {
 
         <div className="flex justify-center mt-10">
           <div className="flex gap-2">
-            <button className="px-3 py-1 border rounded hover:bg-gray-100">1</button>
-            <button className="px-3 py-1 border rounded hover:bg-gray-100">2</button>
-            <button className="px-3 py-1 border rounded hover:bg-gray-100">3</button>
-            <button className="px-3 py-1 border rounded hover:bg-gray-100">…</button>
-            <button className="px-3 py-1 border rounded hover:bg-gray-100">6</button>
+            <button className="px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer">1</button>
+            <button className="px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer">2</button>
+            <button className="px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer">3</button>
+            <button className="px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer">…</button>
+            <button className="px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer">6</button>
           </div>
         </div>
       </section>
-
+      </div>
+    </div>
       <Footer />
     </main>
   );

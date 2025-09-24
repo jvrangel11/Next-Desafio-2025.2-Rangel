@@ -11,8 +11,10 @@ export default function Header() {
         left-0
         w-full
         z-50
-        bg-gray-900/70
-        backdrop-blur-sm"
+        bg-[#000b1e]/20
+        shadow-md
+        "
+
     >
       <nav className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="flex items-center justify-between h-20">
@@ -32,7 +34,7 @@ export default function Header() {
             <Link href="/contato" className="text-gray-300 hover:text-white transition-colors duration-200">
               Contato
             </Link>
-            <Link href="/Produtos" className="text-gray-300 hover:text-white transition-colors duration-200">
+            <Link href="/produtos" className="text-gray-300 hover:text-white transition-colors duration-200">
               Produtos
             </Link>
             <Link href="/gerenciamento" className="text-gray-300 hover:text-white transition-colors duration-200">

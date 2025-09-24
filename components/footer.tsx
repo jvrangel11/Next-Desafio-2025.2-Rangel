@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-[#000b1e] text-gray-300">
       <div className="max-w-7xl items-center justify-center mx-auto py-12 px-6 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
         
-        {/* Coluna 1: Links e Selos */}
+        
         <div className="flex flex-col items-center md:items-start gap-4">
           <Link href="/termos" className="hover:text-white transition-colors">
             Termos de uso
