@@ -2,7 +2,6 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import CardProduto from "@/components/card-produto";
-import BarraPesquisa from "@/components/barra-de-pesquisa";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export default function Home() {
