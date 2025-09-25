@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ShoppingBagIcon } from '@heroicons/react/24/outline';
+import { FaBars } from "react-icons/fa";
+
 
 
 export default function Header() {
