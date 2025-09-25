@@ -9,7 +9,7 @@ const roboto = Roboto({
   variable: '--font-roboto',
 });
 
-const jostSerif = Jost({
+const jost = Jost({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
@@ -30,13 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
-        className={`${jostSerif.variable} ${jostSerif.variable} antialiased`}>
+        className={`${jost.variable} ${roboto.variable} antialiased`}>
           <div className="top-0 left-0 width"></div>
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

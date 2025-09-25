@@ -1,6 +1,13 @@
+import Link from "next/link";
+import { FaArrowLeft } from 'react-icons/fa';
+
 export default function Login() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[url('/assets/bg2.png')] bg-no-repeat bg-cover bg-center">
+    <div className=" bg-[url('/assets/bg2.png')] bg-no-repeat bg-cover bg-center">
+      <Link href="/" className="text-gray-300 hover:text-white transition-colors duration-200 absolute top-6 left-6">
+              <button className="hover:scale-200 transition-transform text-xl"><FaArrowLeft /></button>
+        </Link>
+    <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white/80 py-12.5 px-12.5 rounded-2xl shadow-[0_0_8px_#a259ff,0_0_16px_#a259ff80] flex justify-center items-center gap-8">
         <img src="/assets/HERCULES-LOGO-semfundo.png" width={300} alt="" />
         <div>
@@ -26,6 +33,7 @@ export default function Login() {
           <div className="flex items-center justify-center"><button type="submit" className="bg-[#311848] text-white px-4 py-2 rounded-xl cursor-pointer shadow-sm hover:bg-[#5c377e] transform-border">Login</button></div>
         </form>
       </div>
+    </div>
     </div>
     </div>
   );
