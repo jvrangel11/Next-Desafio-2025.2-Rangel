@@ -48,15 +48,15 @@ export default function Home() {
       <section className="bg-gradient-to-b from-[#1F2B5E] to-[#000B1E] text-white py-16">
         <div className="max-w-6xl mx-auto px-6 text-center grid gap-12 md:grid-cols-3">
           <div>
-            <h3 className="text-xl font-semibold mb-2">Missão ❤️</h3>
+            <h3 className="text-xl font-semibold mb-2">Missão</h3>
             <p className="text-sm opacity-80">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-2">Visão 👁️</h3>
+            <h3 className="text-xl font-semibold mb-2">Visão</h3>
             <p className="text-sm opacity-80">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-2">Valores ✨</h3>
+            <h3 className="text-xl font-semibold mb-2">Valores</h3>
             <p className="text-sm opacity-80">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
         </div>

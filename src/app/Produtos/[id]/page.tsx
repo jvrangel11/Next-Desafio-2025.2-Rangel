@@ -30,14 +30,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             <p className="text-gray-500">Imagem do Produto</p>
           </div>
 
-          <div></div>
-          <div className="flex flex-col gap-4 items-center justify-center">
+          <div><div className="flex flex-col gap-4 items-center justify-center">
             <h1 className="text-3xl font-regular tracking-tight">{product.name}</h1>
             
             <div className="flex items-center">
               <span className="text-3xl text-gray-900">R$ {product.price.toFixed(2).replace('.', ',')}</span>
               <span className="text-xl ">R$ {product.oldPrice.toFixed(2).replace('.', ',')}</span>
-            </div>
+            </div></div>
+          
             
             <div className="flex items-center gap-2">
               <span className="text-green-600 font-semibold">Pagamento no Pix</span>
