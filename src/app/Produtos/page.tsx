@@ -16,9 +16,12 @@ export default function ProductsPage() {
     id: i + 1,
     name: "Cash Over Feelings Oversized",
     price: 159.9,
-    img: "/placeholder.png",
+    img: "assets/Camisa.png",
   }));
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
+  const [openCategorias, setOpenCategorias] = useState(false);
+  const [openTamanhos, setOpenTamanhos] = useState(false);
+  const [openCores, setOpenCores] = useState(false);
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -27,21 +30,21 @@ export default function ProductsPage() {
       <div className="bg-white bg-opacity-90">
       <section className="max-w-6xl mt-20 mx-auto px-1 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <BarraDePesquisa />
-        <button className="flex items-center gap-2 border-b rounded-md px-4 py-2 hover:bg-gray-50/90 transition-colors duration-400" onClick={() => setShowSidebar(true)}>
+        <button className="flex items-center gap-2 border-b rounded-md px-4 py-2 hover:bg-gray-50/90 transition-colors duration-400" onClick={() => setShowFilters(!showFilters)}>
           Filtros
         </button>
       </section>
-
-      <div className="w-full h-full absolute bottom-0 z-999 backdrop-blur-xs flex justify-start items-start hidden" onClick={() => setShowSidebar(false)}>
+      {showFilters && (
+      <div id="blur" className="w-full h-full absolute bottom-0 z-999 backdrop-blur-xs flex justify-start items-start">
         <div className="pt-10  h-full bg-linear-to-t from-[#424242] to-[#272727] text-white flex flex-col justify-between ">
           <div className="gap-10 flex flex-col">
-          <button className="text-xl ml-5 cursor-pointer hover:text-white/80" onClick={() => setShowSidebar(false)}><FaArrowLeft /></button>
+          <button className="text-xl ml-5 cursor-pointer hover:text-white/80" onClick={() => setShowFilters(!showFilters)}><FaArrowLeft /></button>
           <div className="flex flex-col gap-4 w-full">
-            <div className="flex justify-between px-20 items-center border-b border-white/30 pb-2 cursor-pointer hover:scale-105 transition-transform duration-200 gap-2">
+            <div className="flex justify-between px-20 items-center border-b border-white/30 pb-2 cursor-pointer hover:scale-105 transition-transform duration-200 gap-2 " onClick={() => setOpenCategorias(!openCategorias)}>
               <h2 className="">Categorias</h2>
-              <button><FaAngleDown /></button>
+              <button><FaAngleDown className={`transition-transform duration-200 ${openCategorias ? "rotate-180" : ""}`} /></button>
             </div>
-            <div id="categorias" className="hidden">
+            {openCategorias && (
               <div className="flex flex-col gap-1 justify-center items-center">
               <div className="flex flex-row">
               <h1 className="font-thin cursor-pointer">Masculino</h1>
@@ -60,12 +63,12 @@ export default function ProductsPage() {
               <FaCheck className="text-xs hidden" />
               </div>
             </div>
-            </div>
-            <div className="flex justify-between px-20 items-center border-b border-white/30 pb-2 cursor-pointer hover:scale-105 transition-transform duration-200 gap-2">
+            )}
+            <div className="flex justify-between px-20 items-center border-b border-white/30 pb-2 cursor-pointer hover:scale-105 transition-transform duration-200 gap-2" onClick={() => setOpenTamanhos(!openTamanhos)}>
               <h2 className="">Tamanhos</h2>
-              <button><FaAngleDown /></button>
+              <button><FaAngleDown className={`transition-transform duration-200 ${openTamanhos ? "rotate-180" : ""}`} /></button>
             </div>
-            <div id="tamanhos" className="hidden">
+            {openTamanhos && (
               <div className="flex flex-col gap-1 justify-center items-center">
               <div className="flex flex-row">
               <h1 className="font-thin cursor-pointer">PP</h1>
@@ -88,13 +91,14 @@ export default function ProductsPage() {
               <FaCheck className="text-xs hidden" />
               </div>
             </div>
+            )}
+            
+            <div className="flex justify-between px-20 items-center border-b border-white/30 pb-2 cursor-pointer hover:scale-105 transition-transform duration-200 gap-2"  onClick={() => setOpenCores(!openCores)}>
+              <h2 className="">Cores</h2>
+              <button><FaAngleDown className={`transition-transform duration-200 ${openCores ? "rotate-180" : ""}`} /></button>
             </div>
             
-            <div className="flex justify-between px-20 items-center border-b border-white/30 pb-2 cursor-pointer hover:scale-105 transition-transform duration-200 gap-2">
-              <h2 className="">Cores</h2>
-              <button><FaAngleDown /></button>
-            </div>
-            <div id="cores" className="hidden">
+            {openCores && (
               <div className="flex flex-col gap-1 justify-center items-center">
               <div className="flex flex-row">
               <h1 className="font-thin cursor-pointer">Off-white</h1>
@@ -113,9 +117,8 @@ export default function ProductsPage() {
               <FaCheck className="text-xs hidden" />
               </div>
               </div>
-            </div>
+            )}
            </div> 
-            
           </div>
           <div className="flex justify-center items-center w-full bg-[#311848] cursor-pointer shadow-sm hover:bg-[#5c377e] transition-colors duration-400">
             <button type="submit" className="text-white px-4 py-7 w-full h-full cursor-pointer">Aplicar</button>
@@ -123,7 +126,7 @@ export default function ProductsPage() {
           
         </div>
       </div>
-
+      )}
       <section className="max-w-6xl mx-auto px-4 pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {produtos.map((p) => (
