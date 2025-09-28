@@ -19,10 +19,12 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: "Hércules",
   description: "Vista a FORÇA do estilo",
+  icons: {
+    icon: 'assets/HERCULES-LOGO-semfundo.png',
+    shortcut: 'assets/HERCULES-LOGO-semfundo.png',
+    apple: 'assets/HERCULES-LOGO-semfundo.png',
+  },
 };
-
-import Header from "@/components/navbar";
-import Footer from "@/components/navbar";
 
 export default function RootLayout({
   children,

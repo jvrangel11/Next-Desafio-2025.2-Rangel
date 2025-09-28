@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { ShoppingBagIcon } from '@heroicons/react/24/outline';
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { FaCreditCard } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
+
 
 const product = {
   name: 'Cash Over Feelings Oversized',
@@ -30,29 +33,33 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             <p className="text-gray-500">Imagem do Produto</p>
           </div>
 
-          <div><div className="flex flex-col gap-4 items-center justify-center">
+          <div className='flex flex-col gap-10 items-center justify-center'><div className="flex flex-col gap-4 items-center justify-center">
             <h1 className="text-3xl font-regular tracking-tight">{product.name}</h1>
-            
-            <div className="flex items-center">
-              <span className="text-3xl text-gray-900">R$ {product.price.toFixed(2).replace('.', ',')}</span>
-              <span className="text-xl ">R$ {product.oldPrice.toFixed(2).replace('.', ',')}</span>
-            </div></div>
-          
-            
-            <div className="flex items-center gap-2">
-              <span className="text-green-600 font-semibold">Pagamento no Pix</span>
-              <p className="text-gray-600">{product.installments}</p>
+            <div className="flex gap-10 items-center justify-center mt-10">
+              <div id='pix' className="flex items-center gap-3">
+              <img src="/assets/pix.png" alt="" width={40} />
+              <div id='preco' className='flex flex-col'>
+                <span className="text-lg text-gray-900">R$ {product.price.toFixed(2).replace('.', ',')}</span>
+                <span className='font-thin text-gray-400'>Pagamento no PIX</span>
+              </div></div>
+              <div id='cartao' className="flex items-center gap-3">
+              <FaCreditCard className='text-3xl ml-5' />
+              <div id='preco' className='flex flex-col'>
+                <span className="text-lg text-gray-900">R$ {product.price.toFixed(2).replace('.', ',')}</span>
+                <span className='font-thin text-gray-400'>{product.installments}</span>
+              </div></div>
             </div>
-
-            <div className="mt-4">
-              <h3 className="text-sm font-medium text-gray-900 mb-2">Tamanhos Disponíveis:</h3>
+            </div>
+          
+            <div className="mt-4 flex flex-col align-center justify-center">
+              <h3 className="text-sm font-thin text-gray-900 mb-2 text-center">Tamanhos Disponíveis:</h3>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
                     className={`
-                      px-4 py-2 border rounded-md font-semibold transition-colors
+                      px-4 py-2 border rounded-md font-semibold transition-colors cursor-pointer
                       ${selectedSize === size
                         ? 'bg-gray-900 text-white border-gray-900'
                         : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
@@ -66,9 +73,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </div>
 
             <div className="mt-6">
-              <button className="w-full bg-indigo-900 text-white font-bold py-4 px-8 rounded-lg flex items-center justify-center gap-3 hover:bg-indigo-800 transition-all duration-300 shadow-lg transform hover:scale-105">
-                <ShoppingBagIcon className="h-6 w-6" />
-                <span>Adicionar ao Carrinho</span>
+              <button className="w-full bg-[#311848] text-white font-bold py-4 px-8 rounded-lg flex items-center justify-center gap-3 hover:bg-[#5c377e] transition-all duration-300 shadow-lg transform hover:scale-105 cursor-pointer">
+                <span>Adicionar ao Carrinho  ㅤ|</span>
+                <FaCartPlus className="h-6 w-6" />
               </button>
             </div>
           </div>
