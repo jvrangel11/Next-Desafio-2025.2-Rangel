@@ -5,13 +5,14 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { FaCreditCard } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
+import Image from 'next/image';
 
 
 const product = {
   name: 'Cash Over Feelings Oversized',
   price: 129.90,
-  oldPrice: 133.92,
-  installments: 'ou 6x de 22,32 s/ juros',
+  oldPrice: 173.20,
+  installments: 'ou 6x de 28,87 s/ juros',
   sizes: ['PP', 'P', 'M', 'G', 'GG', 'XG'],
   description: `
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ligula sed risus ultricies, non iaculis quam auctor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla rutrum venenatis tempor. Duis quis lacus nisl, non pretium magna. Pellentesque ut pharetra libero. Mauris ac scelerisque eros. Nulla sed tristique purus. Aenean vestibulum lacinialibero. Nam varius egestas quam, eget tempor ligula malesuada auctor. Quisque tincidunt scelerisque eros, a varius turpis pharetra ut. Praesent lobortis at risus sit amet mollis.
@@ -29,8 +30,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       <div className="max-w-7xl mx-auto bg-[#fafafa] relative px-10 py-25">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-center">
           
-          <div className="w-full flex justify-center items-center bg-gray-200 aspect-square rounded-lg animate-pulse">
-            <p className="text-gray-500">Imagem do Produto</p>
+          <div className="w-full flex justify-center items-center bg-gray-200 aspect-square rounded-lg hover:animate-pulse">
+            <img src="/assets/Camisa.png" alt="" />
           </div>
 
           <div className='flex flex-col gap-10 items-center justify-center'><div className="flex flex-col gap-4 items-center justify-center">
@@ -45,7 +46,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               <div id='cartao' className="flex items-center gap-3">
               <FaCreditCard className='text-3xl ml-5' />
               <div id='preco' className='flex flex-col'>
-                <span className="text-lg text-gray-900">R$ {product.price.toFixed(2).replace('.', ',')}</span>
+                <span className="text-lg text-gray-900">R$ {product.oldPrice.toFixed(2).replace('.', ',')}</span>
                 <span className='font-thin text-gray-400'>{product.installments}</span>
               </div></div>
             </div>
@@ -80,6 +81,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         </div>
+
+        <div className="w-full shadow h-2"></div>
 
         <div className="mt-16">
           <h2 className="text-2xl font-bold mb-4">Descrição</h2>
