@@ -2,6 +2,7 @@
 import Sidebar from "@/components/sidebar";
 import { FaPlus, FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import { useState } from "react";
+import Footer from "@/components/footer";
 
 const produtos = [
   { id: 1, name: "Cash Over Feelings Oversized", price: "R$ 129,90", description: "Lorem Ipsum", img: "" },
@@ -28,7 +29,7 @@ export default function Gerenciamento({ children }: { children: React.ReactNode 
 
   return (
     <body className="bg-[url('/assets/bg2.png')] bg-cover bg-center bg-no-repeat">
-      <div className="flex">
+      <div className="">
         <Sidebar />
         <main className="flex-1 pt-8 overflow-auto h-screen">
           <div className="max-w-7xl mx-auto">
@@ -172,6 +173,8 @@ export default function Gerenciamento({ children }: { children: React.ReactNode 
             </div>
           )}
         </main>
+
+          <Footer />
       </div>
     </body>
   );
