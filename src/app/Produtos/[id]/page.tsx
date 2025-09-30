@@ -90,6 +90,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             className="text-gray-700 leading-relaxed text-justify"
             dangerouslySetInnerHTML={{ __html: product.description }}
           />
+          <img src="/assets/tabela-de-medidfas.jpeg" alt="" />
         </div>
       </div>
       <Footer />
