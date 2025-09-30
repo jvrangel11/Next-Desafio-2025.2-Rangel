@@ -23,7 +23,7 @@ export default function ContatoPage() {
     <Navbar />
       <div className="max-w-4xl mx-auto flex flex-col gap-12 pt-10">
         
-        <section className="bg-white rounded-xl shadow-2xl p-8 md:p-12 text-center">
+        <section className="bg-white shadow-2xl p-8 md:p-12 text-center mx-3">
           <div className="flex justify-center mb-6">
             <Image 
               src="/assets/HERCULES-LOGO-semfundo.png"
@@ -32,12 +32,12 @@ export default function ContatoPage() {
               height={100}
             />
           </div>
-          <h2 className="text-2xl font-regular text-black mb-2">Dados para Contato</h2>
-          <p className="text-black mb-6 max-w-md mx-auto">
+          <h2 className="text-2xl font-regular text-[#000b1e] mb-2">Dados para Contato</h2>
+          <p className="text-[#000b1e] mb-6 max-w-md mx-auto">
             Lorem Ipsum, 6, Lorem Ipsum Lorem Ipsum. <br /> (32) 4002-8922
           </p>
-          <h3 className="text-xl font-thin text-black mb-4">Redes Sociais</h3>
-          <div className="flex justify-center space-x-5 text-4xl text-black">
+          <h3 className="text-xl font-thin text-[#000b1e] mb-4">Redes Sociais</h3>
+          <div className="flex justify-center space-x-5 text-4xl text-[#000b1e]">
             <a href="#" aria-label="Facebook" className="hover:text-blue-600 transition-colors"><FaFacebook /></a>
             <a href="#" aria-label="Twitter" className="hover:text-sky-500 transition-colors"><FaTwitter /></a>
             <a href="#" aria-label="WhatsApp" className="hover:text-green-500 transition-colors"><FaWhatsapp /></a>
@@ -45,8 +45,8 @@ export default function ContatoPage() {
           </div>
         </section>
 
-        <section className="bg-white rounded-xl shadow-2xl p-8 md:p-12">
-          <h2 className="text-3xl text-black text-center mb-8">Fale Conosco</h2>
+        <section className="bg-white shadow-2xl p-8 md:p-12 mx-3">
+          <h2 className="text-3xl text-[#000b1e] text-center mb-8">Fale Conosco</h2>
           <form onSubmit={handleSubmit} className="space-y-8">
             <div>
               <input 
