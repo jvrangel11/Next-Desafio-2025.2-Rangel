@@ -17,7 +17,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Hércules",
+  title: "Hércules | Vista a FORÇA do estilo",
   description: "Vista a FORÇA do estilo",
   icons: {
     icon: '/assets/Hercules-logo2.png',      

@@ -40,14 +40,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               <div id='pix' className="flex items-center gap-3">
               <img src="/assets/pix.png" alt="" width={40} />
               <div id='preco' className='flex flex-col'>
-                <span className="text-lg text-gray-900">R$ {product.price.toFixed(2).replace('.', ',')}</span>
-                <span className='font-thin text-gray-400'>Pagamento no PIX</span>
+                <span className="text-base bp-840:text-lg text-gray-900">R$ {product.price.toFixed(2).replace('.', ',')}</span>
+                <span className='font-thin text-sm text-gray-400'>Pagamento no PIX</span>
               </div></div>
               <div id='cartao' className="flex items-center gap-3">
               <FaCreditCard className='text-3xl ml-5' />
               <div id='preco' className='flex flex-col'>
-                <span className="text-lg text-gray-900">R$ {product.oldPrice.toFixed(2).replace('.', ',')}</span>
-                <span className='font-thin text-gray-400'>{product.installments}</span>
+                <span className="text-base bp-840:text-lg text-gray-900">R$ {product.oldPrice.toFixed(2).replace('.', ',')}</span>
+                <span className='font-thin text-sm text-gray-400'>{product.installments}</span>
               </div></div>
             </div>
             </div>
