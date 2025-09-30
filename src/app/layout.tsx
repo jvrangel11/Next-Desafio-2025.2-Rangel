@@ -13,16 +13,16 @@ const jost = Jost({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  variable: '--font-joust',
+  variable: '--font-jost', 
 });
 
 export const metadata: Metadata = {
   title: "Hércules",
   description: "Vista a FORÇA do estilo",
   icons: {
-    icon: 'assets/HERCULES-LOGO-semfundo.png',
-    shortcut: 'assets/HERCULES-LOGO-semfundo.png',
-    apple: 'assets/HERCULES-LOGO-semfundo.png',
+    icon: '/assets/Hercules-logo2.png',      
+    shortcut: '/assets/Hercules-logo2.png',  
+    apple: '/assets/Hercules-logo2.png',    
   },
 };
 
@@ -33,9 +33,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${jost.variable} ${roboto.variable} antialiased`}>
-          <div className="top-0 left-0 width"></div>
+      <head>
+
+        <link rel="icon" href="/assets/Hercules-logo2.png" />
+        <link rel="shortcut icon" href="/assets/Hercules-logo2.png" />
+        <link rel="apple-touch-icon" href="/assets/Hercules-logo2.png" />
+      </head>
+      <body className={`${jost.variable} ${roboto.variable} antialiased`}>
         {children}
       </body>
     </html>

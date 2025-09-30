@@ -14,3 +14,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Category {
+  id Int @id @default(autoincrement())
+  name String @unique
+  products Product[]
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  price       Float
+  description String
+  imageUrl    String
+  categoryId  Int
+  categories  Category[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  isInCarousel Boolean
+}
