@@ -51,11 +51,11 @@ export default function Login() {
                 />
               </div>
               <div className="flex items-center justify-center">
-                <button
-                  type="submit"
-                  className="bg-[#311848] text-white px-4 py-2 rounded-xl cursor-pointer shadow-sm hover:bg-[#5c377e] transition-colors duration-200">
+                <Link href="/gerenciamento">
+                <button className="bg-[#311848] text-white px-4 py-2 rounded-xl cursor-pointer shadow-sm hover:bg-[#5c377e] transition-colors duration-200">
                   Login
                 </button>
+                </Link>
               </div>
             </form>
           </div>

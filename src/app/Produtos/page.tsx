@@ -5,14 +5,51 @@ import CardProduto from "@/components/card-produto";
 import BarraDePesquisa from "@/components/barra-de-pesquisa";
 import { FaAngleDown, FaCheck, FaArrowLeft } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { getAllProdutos } from "@/actions/home/actions";
+
+type Produto = {
+  id: number;
+  title: string;
+  price: number;
+  imageUrl: string;
+  description: string;
+};
+
+type PaginatedProdutos = {
+  produtos: Produto[];
+  totalPages: number;
+  currentPage: number;
+  total: number;
+};
 
 export default function ProductsPage() {
-  const produtos = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    name: "Cash Over Feelings Oversized",
-    price: 159.9,
-    img: "assets/Camisa.png",
-  }));
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProdutos = async () => {
+      setIsLoading(true);
+      try {
+        const result = await getAllProdutos(currentPage, 12);
+        if (result.success && result.data) {
+          setProdutos(result.data.produtos);
+          setTotalPages(result.data.totalPages);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar produtos:', error);
+      }
+      setIsLoading(false);
+    };
+
+    loadProdutos();
+  }, [currentPage]);
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const [showFilters, setShowFilters] = useState(false);
   const [openCategorias, setOpenCategorias] = useState(false);
   const [openTamanhos, setOpenTamanhos] = useState(false);
@@ -149,21 +186,49 @@ export default function ProductsPage() {
           </div>
 
           <section className="max-w-6xl mx-auto px-4 pb-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {produtos.map((p) => (
-                <CardProduto key={p.id} produto={p} />
-              ))}
-            </div>
-
-            <div className="flex justify-center mt-10">
-              <div className="flex gap-2">
-                <button className="px-3 py-1 border rounded hover:bg-gray-200 transition-colors duration-200 cursor-pointer">1</button>
-                <button className="px-3 py-1 border rounded hover:bg-gray-200 transition-colors duration-200 cursor-pointer">2</button>
-                <button className="px-3 py-1 border rounded hover:bg-gray-200 transition-colors duration-200 cursor-pointer">3</button>
-                <button className="px-3 py-1 border rounded hover:bg-gray-200 transition-colors duration-200 cursor-pointer">…</button>
-                <button className="px-3 py-1 border rounded hover:bg-gray-200 transition-colors duration-200 cursor-pointer">6</button>
+            {isLoading ? (
+              <div className="flex justify-center items-center min-h-[400px]">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
               </div>
-            </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {produtos.map((p) => (
+                    <CardProduto key={p.id} produto={p} />
+                  ))}
+                </div>
+
+                {totalPages > 1 && (
+                  <div className="flex justify-center mt-8 gap-2">
+                    <button
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="px-4 py-2 border rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
+                    >
+                      Anterior
+                    </button>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                      <button
+                        key={page}
+                        onClick={() => handlePageChange(page)}
+                        className={`px-4 py-2 border rounded-md ${
+                          page === currentPage ? 'bg-gray-900 text-white' : 'hover:bg-gray-100'
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    ))}
+                    <button
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="px-4 py-2 border rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
+                    >
+                      Próxima
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
           </section>
         </div>
       </div>

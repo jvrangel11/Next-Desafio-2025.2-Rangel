@@ -15,3 +15,50 @@
     --font-jost: var(--font-jost), system-ui, sans-serif;
     --font-roboto: var(--font-roboto), Georgia, serif;
 }
+
+.swiper {
+  padding: 0 40px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-pagination-bullet {
+  background: #311848 !important;
+  width: 8px !important;
+  height: 8px !important;
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: white !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+@media (max-width: 640px) {
+  .swiper {
+    padding: 0 20px !important;
+  }
+}
