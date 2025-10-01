@@ -231,7 +231,7 @@ export default function ProductsPage() {
             )}
           </section>
         </div>
-      </div> {/*tem alteração sim vscode*/}
+      </div>
       <Footer />
     </main>
   );
